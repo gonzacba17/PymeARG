@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
+import { KPICards } from './components/dashboard/kpi-cards'
+import { ProjectionChart } from './components/dashboard/projection-chart'
+import { SmartAlerts } from './components/dashboard/smart-alerts'
+import { RecentTransactions } from './components/dashboard/recent-transactions'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-background">
+      <main className="pb-20">
+        <div className="p-4 md:p-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-balance">
+              Buenos días, Usuario
+            </h1>
+            <p className="text-muted-foreground mt-1">
+              ¿Cómo viene tu mes? Acá tenés el resumen.
+            </p>
+          </div>
+
+          {/* KPI Cards */}
+          <div className="mb-6">
+            <KPICards />
+          </div>
+
+          {/* Main Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Chart - Takes 2 columns */}
+            <div className="lg:col-span-2">
+              <ProjectionChart />
+            </div>
+
+            {/* Alerts - Takes 1 column */}
+            <div className="lg:col-span-1">
+              <SmartAlerts />
+            </div>
+          </div>
+
+          {/* Recent Transactions */}
+          <div className="mt-6">
+            <RecentTransactions />
+          </div>
+        </div>
+      </main>
+    </div>
   )
 }
 
