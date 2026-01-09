@@ -101,6 +101,23 @@ router.post('/', authenticate, asyncHandler(async (req, res) => {
     });
   }
   
+  // Validar límite de cuentas (free tier: 5 cuentas)
+  const countResult = await query(
+    'SELECT COUNT(*) as count FROM cuentas_bancarias WHERE empresa_id = $1',
+    [empresaId]
+  );
+  
+  const totalCuentas = parseInt(countResult.rows[0].count);
+  const LIMITE_FREE_TIER = 5;
+  
+  if (totalCuentas >= LIMITE_FREE_TIER) {
+    return res.status(403).json({
+      success: false,
+      error: 'Límite de cuentas alcanzado',
+      message: `El plan gratuito permite hasta ${LIMITE_FREE_TIER} cuentas. Contacta ventas para actualizar.`
+    });
+  }
+  
   const result = await query(
     `INSERT INTO cuentas_bancarias 
      (empresa_id, nombre_cuenta, proveedor, saldo_actual, moneda, estado)
