@@ -44,4 +44,3 @@ export function Badge({
   )
 }
 
-export { badgeVariants }
