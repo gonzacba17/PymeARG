@@ -1,61 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Import Inter font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-gray-50 text-gray-900;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@layer components {
-  /* Metric Card */
-  .metric-card {
-    @apply bg-white rounded-lg shadow-sm p-6 border border-gray-100;
-  }
-  
-  .metric-label {
-    @apply text-sm font-medium text-gray-500 uppercase tracking-wide;
-  }
-  
-  .metric-value {
-    @apply text-4xl font-bold text-gray-900 mb-1;
-  }
-  
-  .metric-change-positive {
-    @apply text-sm font-medium text-green-600;
-  }
-  
-  .metric-change-negative {
-    @apply text-sm font-medium text-red-600;
-  }
-  
-  /* Alert Banners */
-  .alert-critical {
-    @apply bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-900;
-  }
-  
-  .alert-warning {
-    @apply bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg text-yellow-900;
-  }
-  
-  .alert-info {
-    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg text-blue-900;
-  }
-  
-  /* Button */
-  .btn-primary {
-    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 transition-colors;
-  }
-}
+
