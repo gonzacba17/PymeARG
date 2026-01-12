@@ -10,9 +10,12 @@
   "scripts": {
     "dev:api": "npm run dev --workspace=apps/api",
     "dev:web": "npm run dev --workspace=apps/web",
+    "dev:landing": "npm run dev --workspace=apps/landing",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:all": "concurrently \"npm run dev:api\" \"npm run dev:web\" \"npm run dev:landing\"",
     "build:api": "npm run build --workspace=apps/api",
     "build:web": "npm run build --workspace=apps/web",
+    "build:landing": "npm run build --workspace=apps/landing",
     "build": "npm run build:api && npm run build:web",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces",
